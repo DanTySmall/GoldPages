@@ -4,7 +4,7 @@
 	$contactId = $inData["contactId"];
 	$userId = $inData["userId"];
 
-	$conn = new mysqli("localhost", "YourUsername", "YourPassword", "YourDatabaseName");
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
 	{
 		returnWithError($conn->connect_error);
