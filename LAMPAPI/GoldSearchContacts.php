@@ -2,8 +2,8 @@
 
 	$inData = getRequestInfo();
 	
-	$search = "%" . $inData["search"] . "%";
-	$userId = $inData["userId"];
+	$searchResults = "";
+	$searchCount = 0;
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
@@ -12,13 +12,11 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("SELECT FirstName, LastName, PhoneNumber, Email FROM Contacts WHERE UserId=? AND (FirstName LIKE ? OR LastName LIKE ? OR PhoneNumber LIKE ? OR Email LIKE ?)");
-		$stmt->bind_param("issss", $userId, $search, $search, $search, $search);
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE (FirstName like ? OR LastName like?) AND UserID=?");
+		$colorName = "%" . $inData["search"] . "%";
+		$stmt->bind_param("sss", $colorName, $colorName, $inData["userId"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
-
-		$searchResults = "";
-		$searchCount = 0;
 		
 		while($row = $result->fetch_assoc())
 		{
@@ -27,7 +25,7 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '{"firstName":"' . $row["FirstName"] . '","lastName":"' . $row["LastName"] . '","phoneNumber":"' . $row["PhoneNumber"] . '","email":"' . $row["Email"] . '"}';
+			$searchResults .= '{"FirstName" : "' . $row["FirstName"]. '", "LastName" : "' . $row["LastName"]. '", "PhoneNumber" : "' . $row["PhoneNumber"]. '", "EmailAddress" : "' . $row["EmailAddress"]. '", "UserID" : "' . $row["UserID"].'", "ID" : "' . $row["ID"]. '"}';
 		}
 		
 		if( $searchCount == 0 )
