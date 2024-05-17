@@ -1,12 +1,11 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$contactId = $inData["contactId"];
-	$firstName = $inData["firstName"];
-	$lastName = $inData["lastName"];
 	$phoneNumber = $inData["phoneNumber"];
-	$email = $inData["email"];
-	$userId = $inData["userId"];
+	$emailAddress = $inData["emailAddress"];
+	$newFirst = $inData["newFirstName"];
+	$newLast = $inData["newLastName"];
+	$id = $inData["id"];
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
@@ -15,21 +14,13 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("UPDATE Contacts SET FirstName=?, LastName=?, PhoneNumber=?, Email=? WHERE ID=? AND UserId=?");
-		$stmt->bind_param("ssssii", $firstName, $lastName, $phoneNumber, $email, $contactId, $userId);
+		$stmt = $conn->prepare("UPDATE Contacts SET FirstName=?, LastName=?, PhoneNumber=?, Email=? WHERE ID=?");
+		$stmt->bind_param("ssssi", $newFirstName, $newLastName, $phoneNumber, $email, $id);
 		$stmt->execute();
-		
-		if ($stmt->affected_rows > 0) 
-		{
-			returnWithError("");
-		} 
-		else 
-		{
-			returnWithError("No Records Updated");
-		}
 
 		$stmt->close();
 		$conn->close();
+		returnWithError("");
 	}
 
 	function getRequestInfo()
