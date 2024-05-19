@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `cop4331` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `cop4331`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cop4331
@@ -16,6 +18,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contacts` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL DEFAULT '',
+  `Phone` varchar(50) NOT NULL DEFAULT '',
+  `Email` varchar(50) NOT NULL DEFAULT '',
+  `UserID` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -30,7 +58,6 @@ CREATE TABLE `users` (
   `LastName` varchar(50) NOT NULL DEFAULT '',
   `Login` varchar(50) NOT NULL DEFAULT '',
   `Password` varchar(50) NOT NULL DEFAULT '',
-  `Email` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +68,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'2024-05-16 14:37:11','2024-05-16 14:37:11','Rick','Leinecker','RickL','COP4331','Richard.Leinecker@ucf.edu'),(2,'2024-05-16 14:37:31','2024-05-16 14:37:31','Sam','Hill','SamH','Test',''),(3,'2024-05-16 14:37:31','2024-05-16 14:37:31','Rick','Leinecker','RickL','5832a71366768098cceb7095efb774f2',''),(4,'2024-05-16 14:37:31','2024-05-16 14:37:31','Sam','Hill','SamH','0cbc6611f5540bd0809a388dc95a615b','');
+INSERT INTO `users` VALUES (1,'2024-05-19 15:35:23','2024-05-19 15:35:23','Rick','Leinecker','RickL','COP4331'),(2,'2024-05-19 15:35:23','2024-05-19 15:35:23','Sam','Hill','SamH','Test');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-16 14:42:05
+-- Dump completed on 2024-05-19 15:45:56
