@@ -21,7 +21,7 @@ function doLogin()
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
-	let url = urlBase + '/Login.' + extension;
+	let url = urlBase + '/GoldLogin.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -68,7 +68,7 @@ function doRegister() {
     let tmp = { firstName: newFirstName, lastName: newLastName, username: newUsername, password: newPassword };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/Register.' + extension;
+    let url = urlBase + '/GoldRegister.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -145,7 +145,7 @@ function addContact() {
     let tmp = { firstName: newFirstName, lastName: newLastName, phoneNumber: newPhoneNumber, email: newEmail, userId: userId };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/AddContact.' + extension;
+    let url = urlBase + '/GoldAdd.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -171,7 +171,7 @@ function searchContact() {
     let tmp = { search: srch, userId: userId };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/SearchContacts.' + extension;
+    let url = urlBase + '/GoldSearchContacts.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -209,7 +209,7 @@ function editContact() {
     let tmp = { contactId: contactId, firstName: newFirstName, lastName: newLastName, phoneNumber: newPhoneNumber, email: newEmail, userId: userId };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/EditContact.' + extension;
+    let url = urlBase + '/GoldEditContacts.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -233,7 +233,7 @@ function deleteContact() {
     let tmp = { contactId: contactId, userId: userId };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase + '/DeleteContact.' + extension;
+    let url = urlBase + '/GoldDelete.' + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
