@@ -80,7 +80,7 @@ body {
 /* error messaging formatting */
 #loginResult {
     position: relative;
-    bottom: 175px;
+    bottom: 200px;
     color: rgb(203, 55, 21);
     font-family: 'Ubuntu', sans-serif;
 }
@@ -170,7 +170,7 @@ select {
 #signup {
     position: relative;
     left: -400px;
-    top: -172px;
+    top: -190px;
 }
 
 .submit-btn:hover {
