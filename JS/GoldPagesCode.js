@@ -1,4 +1,4 @@
-const urlBase = 'http://GoldPages/LAMPAPI';
+const urlBase = 'http://gold-Pages.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
