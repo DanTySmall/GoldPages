@@ -167,10 +167,10 @@ function addContact() {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("contactAddResult").innerHTML = "Contact has been added";
-                // Clear input fields in form 
-                document.getElementById("addMe").reset();
                  // Wait for 5 seconds before reloading contacts and switching view
                  setTimeout(function() {
+                    // Clear input fields in form 
+                    document.getElementById("addMe").reset();
                     loadContacts(); //reload
                     showTable();    //switch back
                 }, 5000); // 5000 milliseconds = 5 seconds
