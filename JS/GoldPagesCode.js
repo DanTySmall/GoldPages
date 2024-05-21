@@ -173,7 +173,7 @@ function addContact() {
                     document.getElementById("addMe").reset();
                     loadContacts(); //reload
                     showTable();    //switch back
-                }, 5000); // 5000 milliseconds = 5 seconds
+                }, 3000); // 5000 milliseconds = 5 seconds
             }
         };
         xhr.send(jsonPayload);
