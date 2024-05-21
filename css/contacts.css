@@ -74,7 +74,7 @@ body {
     display: none;
     border-radius: 17px;
     position: relative;
-    background: rgba(234, 207, 155, 0.9);
+    background: #ADD8E6;  /* Light Blue */
     max-width: 350px;
     margin: 0 auto 50px;
     padding: 30px;
@@ -227,12 +227,13 @@ table {
     height: 300px;
     overflow-x: auto;
     margin-top: 0px;
-    border: 1px solid rgba(155, 188, 115, 0.9);
+    border: 1px solid #ADD8E6;  /* Light Blue */
+    border-radius: 25px;
 }
 
 #contacts td,
 #contacts th {
-    border: 1px solid rgba(155, 188, 115, 0.9);
+    border: 1px solid #ADD8E6;  /* Light Blue */
 }
 
 #contacts tr:hover {
@@ -246,8 +247,8 @@ table {
     font-weight: 500;
     font-size: 16px;
     font-weight: bold;
-    color: #007D2F;
-    background-color: rgba(155, 188, 115, 0.9);
+    color: #22221e;
+    background-color: #ADD8E6;  /* Light Blue */
     text-transform: uppercase;
 }
 
@@ -284,14 +285,6 @@ table {
 }
 
 /*side navigation menu*/
-.sidenav img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    position: relative;
-}
-
 .sidenav {
     width: 264px;
     height: 100%;
@@ -303,7 +296,7 @@ table {
     /*disables horizontal scroll*/
     position: fixed;
     /*scroll bar stays in place when user is scrolling*/
-    background: rgba(155, 188, 115, 0.9);
+    background: #ADD8E6;  /* Light Blue */
 }
 
 /*navigation links*/
@@ -317,7 +310,7 @@ table {
     font-weight: 600;
     font-size: 25px;
     line-height: 44px;
-    color: #007D2F;
+    color: #22221e;
 }
 
 .buttons {
@@ -350,7 +343,7 @@ table {
     font-weight: 600;
     font-size: 25px;
     line-height: 44px;
-    color: #007D2F;
+    color: #22221e;
     background: none;
     border: none;
     cursor: pointer;
