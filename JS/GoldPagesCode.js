@@ -135,6 +135,18 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+function showTable() {
+    var x = document.getElementById("addMe");
+    var contacts = document.getElementById("contactsTable")
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        contacts.style.display = "none";
+    } else {
+        x.style.display = "none";
+        contacts.style.display = "block";
+    }
+}
+
 function addContact() {
     let newFirstName = document.getElementById("firstName").value;
     let newLastName = document.getElementById("lastName").value;
