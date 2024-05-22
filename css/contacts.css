@@ -74,7 +74,7 @@ body {
     display: none;
     border-radius: 17px;
     position: relative;
-    background: #337ab7;
+    background: #ADD8E6;  /* Light Blue */
     max-width: 350px;
     margin: 0 auto 50px;
     padding: 30px;
@@ -114,7 +114,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
     outline: 0;
     background: #FFFACD; /* lemon chiffon */
-    color: #ADD8E6;  /* Light Blue */
+    color: #337ab7;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
