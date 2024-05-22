@@ -55,7 +55,7 @@
             </div>
             <!--add contact form-->
             <div class="addContacts">
-                <form id="addMe" action="" method="post">
+                <form id="addMe" action="" method="post" style="display: none;">
                     <input type="text" id="firstName" placeholder="First Name" required>
                     <input type="text" id="lastName" placeholder="Last Name" required>
                     <input type="text" id="phoneNumber" placeholder="XXX-XXX-XXXX" required
@@ -63,6 +63,8 @@
                     <input type="text" id="email" placeholder="name@email.com"
                         pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
                     <button type="button" id="contactAddResult" class="buttons font" onclick="addContact();"> Add Contact
+                    </button>
+                    <button type="button" id="cancel" class="buttons font" onclick="cancelAdd();"> Cancel
                     </button>
                 </form>
             </div>
