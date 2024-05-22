@@ -188,7 +188,7 @@ select {
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     overflow: hidden;
-    height: 360px;
+    height: 350px;
     transition: .6s;
 }
 
@@ -234,7 +234,7 @@ select {
     cursor: pointer;
 }
 
-/* Add a green text color and a smile when the requirements are right */
+/* Add a green text color when the requirements are right */
 .valid {
     color: #009345;
 }
@@ -244,7 +244,7 @@ select {
     left: -35px;
 }
 
-/* Add a red text color and a sad face when the requirements are wrong */
+/* Add a red text color when the requirements are wrong */
 .invalid {
     color: red;
 }
