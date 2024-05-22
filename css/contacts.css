@@ -74,7 +74,7 @@ body {
     display: none;
     border-radius: 17px;
     position: relative;
-    background: #ADD8E6;  /* Light Blue */
+    background: #337ab7;
     max-width: 350px;
     margin: 0 auto 50px;
     padding: 30px;
@@ -169,10 +169,10 @@ body {
     align-items: center;
     cursor: pointer;
     transition: 0.8s;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-        -4px -4px 6px 0 rgba(116, 125, 136, .2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    box-shadow: -4px -4px 6px 0 rgba(255, 255, 255, .3),   /*Light source top-left*/
+                4px 4px 6px 0 rgba(116, 125, 136, .2),    /*Drop shadow bottom-right*/
+                inset 4px 4px 6px 0 rgba(255, 255, 255, .2),  /*Inset light top-right*/
+                inset -4px -4px 6px 0 rgba(0, 0, 0, .2);  /*Inset shadow bottom-left*/
 }
 
 .search-container:hover>.search-input {
