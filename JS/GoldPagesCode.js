@@ -153,7 +153,7 @@ function addContact() {
     let newLastName = document.getElementById("lastName").value;
     let newPhoneNumber = document.getElementById("phoneNumber").value;
     let newEmail = document.getElementById("email").value;
-    document.getElementById("contactAddResult").innerHTML = "";
+    //document.getElementById("contactAddResult").innerHTML = "";
 
     if (!validAddContact(newFirstName, newLastName, newPhoneNumber, newEmail)) {
         console.log("INVALID FIRST NAME, LAST NAME, PHONE, OR EMAIL SUBMITTED");
@@ -183,7 +183,8 @@ function addContact() {
         };
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("contactAddResult").innerHTML = err.message;
+        //document.getElementById("contactAddResult").innerHTML = err.message;
+        console.log(err.message);
     }
 }
 
@@ -604,4 +605,10 @@ function delete_row(no) {
 
     };
 
+}
+
+function cancelAdd(){
+    document.getElementById("addMe").reset();
+    loadContacts(); //reload
+    showTable();    //switch back
 }
