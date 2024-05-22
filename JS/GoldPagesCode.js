@@ -60,13 +60,19 @@ function doLogin()
 }
 
 function doRegister() {
-    let newFirstName = document.getElementById("firstName").value;
-    let newLastName = document.getElementById("lastName").value;
-    let newUsername = document.getElementById("username").value;
-    let newPassword = document.getElementById("password").value;
-    document.getElementById("registerResult").innerHTML = "";
+    firstName = document.getElementById("firstName").value;
+    lastName = document.getElementById("lastName").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
-    let tmp = { firstName: newFirstName, lastName: newLastName, username: newUsername, password: newPassword };
+    if (!validSignUpForm(firstName, lastName, username, password)) {
+        document.getElementById("signupResult").innerHTML = "invalid signup";
+        return;
+    }
+
+    document.getElementById("signupResult").innerHTML = "";
+
+    let tmp = { firstName: firstName, lastName: lastName, username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/GoldRegister.' + extension;
@@ -76,13 +82,27 @@ function doRegister() {
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
     try {
         xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("registerResult").innerHTML = "User has been registered";
+            if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.status == 409) {
+                document.getElementById("signupResult").innerHTML = "User already exists";
+                return;
+            }
+
+            if (this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                userId = jsonObject.id;
+                document.getElementById("signupResult").innerHTML = "User has been registered";
+                firstName = jsonObject.firstName;
+                lastName = jsonObject.lastName;
+                saveCookie();
             }
         };
         xhr.send(jsonPayload);
     } catch (err) {
-        document.getElementById("registerResult").innerHTML = err.message;
+        document.getElementById("signupResult").innerHTML = err.message;
     }
 }
 
