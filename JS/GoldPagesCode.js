@@ -101,6 +101,10 @@ function doRegister() {
             }
         };
         xhr.send(jsonPayload);
+        setTimeout(function() {
+            // Clear input fields in form 
+            document.getElementById("signup").reset();
+        }, 2000); 
     } catch (err) {
         document.getElementById("signupResult").innerHTML = err.message;
     }
