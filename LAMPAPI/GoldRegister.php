@@ -7,7 +7,7 @@
 	
 	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
-	$login = $inData["username"];
+	$login = $inData["login"];
 	$password = $inData["password"];
 	$searchResults = "";
 
