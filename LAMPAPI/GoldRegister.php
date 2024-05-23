@@ -7,8 +7,9 @@
 	
 	$firstName = $inData["firstName"];
 	$lastName = $inData["lastName"];
-	$username = $inData["username"];
+	$login = $inData["username"];
 	$password = $inData["password"];
+	$searchResults = "";
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
