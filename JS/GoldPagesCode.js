@@ -72,7 +72,7 @@ function doRegister() {
 
     document.getElementById("signupResult").innerHTML = "";
 
-    let tmp = { firstName: firstName, lastName: lastName, username: username, password: password };
+    let tmp = { firstName: firstName, lastName: lastName, login: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/GoldRegister.' + extension;
