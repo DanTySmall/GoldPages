@@ -213,27 +213,22 @@ function addContact() {
 }
 
 function searchContact() {
-    const content = document.getElementById("searchText");
-    const selections = content.value.toUpperCase().split(' ');
+    const content = document.getElementById("searchText").value.toUpperCase().trim();
     const table = document.getElementById("contacts");
-    const tr = table.getElementsByTagName("tr");// Table Row
+    const tr = table.getElementsByTagName("tr");
 
     for (let i = 0; i < tr.length; i++) {
-        const td_fn = tr[i].getElementsByTagName("td")[0];// Table Data: First Name
-        const td_ln = tr[i].getElementsByTagName("td")[1];// Table Data: Last Name
+        const td_fn = tr[i].getElementsByTagName("td")[0];
+        const td_ln = tr[i].getElementsByTagName("td")[1];
 
         if (td_fn && td_ln) {
             const txtValue_fn = td_fn.textContent || td_fn.innerText;
             const txtValue_ln = td_ln.textContent || td_ln.innerText;
+            
             tr[i].style.display = "none";
-
-            for (selection of selections) {
-                if (txtValue_fn.toUpperCase().indexOf(selection) > -1) {
-                    tr[i].style.display = "";
-                }
-                if (txtValue_ln.toUpperCase().indexOf(selection) > -1) {
-                    tr[i].style.display = "";
-                }
+		
+            if (txtValue_fn.toUpperCase().includes(content) || txtValue_ln.toUpperCase().includes(content)) {
+                tr[i].style.display = "";
             }
         }
     }
