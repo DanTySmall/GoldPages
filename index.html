@@ -116,11 +116,13 @@
                 var und = /[_]/g;
 
                 //check length
-                if ((userform.value.length >= 3 && userform.value.length <= 18)) {
+                if ((userform.value.length >= 3) && (userform.value.length <= 18)) {
+                    userform.style.borderColor = "#009345";
                     lenInput.classList.remove("invalid");
                     lenInput.classList.add("valid");
 
                 } else {
+                    userform.style.borderColor = "red";
                     lenInput.classList.remove("valid");
                     lenInput.classList.add("invalid");
 

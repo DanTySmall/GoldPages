@@ -321,7 +321,7 @@ function validLoginForm(logName, logPass) {
         console.log("USERNAME IS BLANK");
     }
     else {
-        var regex = /(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$/;
+        var regex = /(?=.*[a-zA-Z])[a-zA-Z0-9-_].{3,18}$/;
 
         if (regex.test(logName) == false) {
             console.log("USERNAME IS NOT VALID");
