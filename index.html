@@ -37,10 +37,10 @@
             <div id="explanationUser">
                 <h3>Username must contain the following:</h3>
                 <p id="userLett" class="invalid">
-                    At least one letter
+                    At least one letter*
                 </p>
                 <p id="userLen" class="invalid">
-                    3 to 18 characters
+                    3 to 18 characters*
                 </p>
                 <h3> Username may contain the following: </h3>
                 <p id="userNum" class="opt">
@@ -56,16 +56,16 @@
             <div id="explanation">
                 <h3>Password must contain the following:</h3>
                 <p id="passLen" class="invalid">
-                    8 to 32 characters
+                    8 to 32 characters*
                 </p>
                 <p id="passLett" class="invalid">
-                    At least one letter
+                    At least one letter*
                 </p>
                 <p id="passNum" class="invalid">
-                    At least one number
+                    At least one number*
                 </p>
                 <p id="passSpec" class="invalid">
-                    At least one special character
+                    At least one special character*
                 </p>
             </div>
         </form>
@@ -117,11 +117,17 @@
 
                 //check length
                 if ((userform.value.length >= 3) && (userform.value.length <= 18)) {
+                    if(lenInput.innerText.length == 19){
+                        lenInput.innerText = lenInput.innerText.substring(0, lenInput.innerText.length - 1);
+                    }
                     userform.style.borderColor = "#009345";
                     lenInput.classList.remove("invalid");
                     lenInput.classList.add("valid");
 
                 } else {
+                    if(lenInput.innerText.length == 18){
+                        lenInput.innerText += "*";
+                    }
                     userform.style.borderColor = "red";
                     lenInput.classList.remove("valid");
                     lenInput.classList.add("invalid");
@@ -130,11 +136,15 @@
 
                 //check letters
                 if ((userform.value.match(lett))) {
-
+                    if(lettInput.innerText.length == 20){
+                        lettInput.innerText = lettInput.innerText.substring(0, lettInput.innerText.length - 1);
+                    }
                     lettInput.classList.remove("invalid");
                     lettInput.classList.add("valid");
                 } else {
-
+                    if(lettInput.innerText.length == 19){
+                        lettInput.innerText += "*";
+                    }
                     lettInput.classList.remove("valid");
                     lettInput.classList.add("invalid");
                 }
@@ -197,36 +207,60 @@
 
                 //check length
                 if (passform.value.length >= 8 && passform.value.length <= 32) {
+                    if(pLenInput.innerText.length == 19){
+                        pLenInput.innerText = pLenInput.innerText.substring(0, pLenInput.innerText.length - 1);
+                    }
                     pLenInput.classList.remove("invalid");
                     pLenInput.classList.add("valid");
                 } else {
+                    if(pLenInput.innerText.length == 18){
+                        pLenInput.innerText += "*";
+                    }
                     pLenInput.classList.remove("valid");
                     pLenInput.classList.add("invalid");
                 }
 
                 //check numbers
                 if (passform.value.match(nums)) {
+                    if(pNumInput.innerText.length == 20){
+                        pNumInput.innerText = pNumInput.innerText.substring(0, pNumInput.innerText.length - 1);
+                    }
                     pNumInput.classList.remove("invalid");
                     pNumInput.classList.add("valid");
                 } else {
+                    if(pNumInput.innerText.length == 19){
+                        pNumInput.innerText += "*";
+                    }
                     pNumInput.classList.remove("valid");
                     pNumInput.classList.add("invalid");
                 }
 
                 //check letters
                 if (passform.value.match(lett)) {
+                    if(pLettInput.innerText.length == 20){
+                        pLettInput.innerText = pLettInput.innerText.substring(0, pLettInput.innerText.length - 1);
+                    }
                     pLettInput.classList.remove("invalid");
                     pLettInput.classList.add("valid");
                 } else {
+                    if(pLettInput.innerText.length == 19){
+                        pLettInput.innerText += "*";
+                    }
                     pLettInput.classList.remove("valid");
                     pLettInput.classList.add("invalid");
                 }
 
                 //check special characters
                 if (passform.value.match(spec)) {
+                    if(pSpecInput.innerText.length == 31){
+                        pSpecInput.innerText = pSpecInput.innerText.substring(0, pSpecInput.innerText.length - 1);
+                    }
                     pSpecInput.classList.remove("invalid");
                     pSpecInput.classList.add("valid");
                 } else {
+                    if(pSpecInput.innerText.length == 30){
+                        pSpecInput.innerText += "*";
+                    }
                     pSpecInput.classList.remove("valid");
                     pSpecInput.classList.add("invalid");
                 }
