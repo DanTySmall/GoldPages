@@ -213,26 +213,53 @@ function addContact() {
 }
 
 function searchContact() {
-    const content = document.getElementById("searchText").value.toUpperCase().trim();
-    const table = document.getElementById("contacts");
-    const tr = table.getElementsByTagName("tr");
+    const content = document.getElementById("searchText").value.trim();
+    
+    // Prepare the data to be sent in the request
+    let tmp = {
+        search: content,
+        userId: userId
+    };
 
-    for (let i = 0; i < tr.length; i++) {
-        const td_fn = tr[i].getElementsByTagName("td")[0];
-        const td_ln = tr[i].getElementsByTagName("td")[1];
+    let jsonPayload = JSON.stringify(tmp);
 
-        if (td_fn && td_ln) {
-            const txtValue_fn = td_fn.textContent || td_fn.innerText;
-            const txtValue_ln = td_ln.textContent || td_ln.innerText;
-            
-            tr[i].style.display = "none";
-		
-            if (txtValue_fn.toUpperCase().includes(content) || txtValue_ln.toUpperCase().includes(content)) {
-                tr[i].style.display = "";
+    let url = urlBase + '/GoldSearchContacts.' + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                if (jsonObject.error) {
+                    console.log(jsonObject.error);
+                    return;
+                }
+                let text = "<table border='1'>"
+                for (let i = 0; i < jsonObject.results.length; i++) {
+                    ids[i] = jsonObject.results[i].ID
+                    text += "<tr id='row" + i + "'>"
+                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].EmailAddress + "</span></td>";
+                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>";
+                    text += "<td>" +
+                        "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")'>" + "<span class='glyphicon glyphicon-edit'></span>" + "</button>" +
+                        "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none'>" + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
+                        "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber'>" + "<span class='glyphicon glyphicon-trash'></span> " + "</button>" + "</td>";
+                    text += "<tr/>"
+                }
+                text += "</table>"
+                document.getElementById("tbody").innerHTML = text;
             }
-        }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        console.log(err.message);
     }
 }
+
 
 function editContact() {
     let contactId = document.getElementById("contactId").value;
