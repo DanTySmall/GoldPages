@@ -577,7 +577,22 @@ function save_row(no) {
     var namel_val = document.getElementById("namel_text" + no).value;
     var email_val = document.getElementById("email_text" + no).value;
     var phone_val = document.getElementById("phone_text" + no).value;
-    var id_val = ids[no]
+    var id_val = ids[no];
+
+    // Email validation regex
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Phone validation regex (xxx-xxx-xxxx format)
+    var phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+
+    if (!emailPattern.test(email_val)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (!phonePattern.test(phone_val)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
 
     document.getElementById("first_Name" + no).innerHTML = namef_val;
     document.getElementById("last_Name" + no).innerHTML = namel_val;
